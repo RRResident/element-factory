@@ -1,0 +1,24 @@
+{
+  "name": "element-factory",
+  "version": "0.0.1",
+  "description": "TODO",
+  "main": "index.js",
+  "scripts": {
+    "test": "TODO"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "keywords": [
+    "create",
+    "element",
+    "HTML"
+  ],
+  "author": "Ross Tanchan",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
+}
