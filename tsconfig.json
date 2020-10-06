@@ -1,7 +1,9 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "ES5"
+        "moduleResolution": "node",
+        "target": "ES5",
+        "lib": ["dom", "es6","es7"]
     },
     "exclude": ["node_modules"]
 }

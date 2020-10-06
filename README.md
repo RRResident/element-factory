@@ -1,3 +1,4 @@
 # Element Factory
 
-TODO: // Write this
+WORK IN PROGRESS
+// TODO

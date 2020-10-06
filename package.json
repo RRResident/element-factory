@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "TODO",
-        "compile": "npx tsc src/index.ts"
+        "compile": "node_modules/typescript/bin/tsc src/index.ts -w"
     },
     "repository": {
         "type": "git",
