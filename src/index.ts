@@ -29,12 +29,18 @@ const booleanAttributes = [
 ];
 
 const elementFactory = function (...commands: string[]): HTMLElement {
-    // Create the top level element from the first item in the array
-    const topLevelElement = document.createElement(commands.shift());
-    commands.forEach((command: string | string[]) => {
+    // Create a top level element
+    let topLevelElement: HTMLElement;
+    commands.forEach((command: string | string[], index: number) => {
         // Throw an error if type of command is invalid
         if (typeof command !== 'string' && !Array.isArray(command)) {
             throw TypeError(`Commands need to be of type string or array, you supplied: ${typeof command}`)
+        }
+
+        // Create element from the first argument
+        if (index === 0) {
+            topLevelElement = document.createElement(command as string);
+            return;
         }
 
         // If the command isn't an array, set the attributes to the values on the element
