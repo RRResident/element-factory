@@ -45,8 +45,10 @@ var elementFactory = function () {
         }
         // If the command isn't an array, set the attributes to the values on the element
         if (!Array.isArray(command)) {
-            // TODO: error handling for invalid attributes and values
             var attribute = command.match(/^[a-zA-z-]*(?==)/)[0];
+            if (!attribute) {
+                throw TypeError("Attribute from " + command + " is invalid, it should be formatted as 'attribute=value'");
+            }
             var value = command.match(/(^[a-zA-z-]*=)(.*)/)[2];
             switch (attribute.toLowerCase()) {
                 case 'text':
@@ -60,15 +62,6 @@ var elementFactory = function () {
             }
         }
         else {
-            // The command is an array and therefore describs child elements
-            // TODO: add support for incrementation of attribute values
-            /*
-            ** ['div']                         - creates a child <div> element
-            ** ['span', 'class=foo','id=bar']  - creates a child <span class="foo" id="bar">
-            ** ['li*5']                        - creates 5 child <li>
-            ** ['li*5', 'class=test']          - creates 5 child <li class="test">
-            ** ['li*5', 'class=test$$']        - creates 5 child <li class="test1"> where the number increments
-            */
             if (!command[0].match(/\*/)) {
                 // If no duplicate child elements, create the child element with elementFactory and append it to the top level element
                 var childElement = elementFactory.apply(void 0, command);
@@ -89,5 +82,4 @@ var elementFactory = function () {
     });
     return topLevelElement;
 };
-// @ts-ignore cannot find name module
 module.exports = elementFactory;
