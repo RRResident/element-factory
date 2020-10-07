@@ -35,16 +35,20 @@ var elementFactory = function () {
     commands.forEach(function (command) {
         // Throw an error if type of command is invalid
         if (typeof command !== 'string' && !Array.isArray(command)) {
-            throw TypeError('Commands need to be of type string or array');
-        }
-        // Check if the item is a string and is a valid boolean attribute, if so, add the attribute
-        var isBooleanAttribute = typeof command === 'string' && booleanAttributes.includes(command);
-        if (isBooleanAttribute) {
-            topLevelElement.setAttribute(command, '');
-            return;
+            throw TypeError("Commands need to be of type string or array, you supplied: " + typeof command);
         }
         // If the command isn't an array, set the attributes to the values on the element
         if (!Array.isArray(command)) {
+            // Check if the command is a single string, and if so, it is a valid boolean attribute
+            var isSingleString = !command.split('').includes('=');
+            var isBooleanAttribute = booleanAttributes.includes(command);
+            if (isSingleString && isBooleanAttribute) {
+                topLevelElement.setAttribute(command, '');
+                return;
+            }
+            else if (isSingleString) {
+                throw TypeError("Command " + command + " is not a valid boolean attribute, and has no '=value'");
+            }
             var attribute = command.match(/^[a-zA-z-]*(?==)/)[0];
             if (!attribute) {
                 throw TypeError("Attribute from " + command + " is invalid, it should be formatted as 'attribute=value'");
