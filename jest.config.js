@@ -1,3 +1,6 @@
 module.exports = {
-    coveragePathIgnorePatterns: ['node_modules']
-}
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  coveragePathIgnorePatterns: ['node_modules'],
+  collectCoverage: true
+};

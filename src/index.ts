@@ -1,3 +1,5 @@
+export {};
+
 const booleanAttributes = [
     "allowfullscreen",
     "allowpaymentrequest",
@@ -34,6 +36,8 @@ const elementFactory = function (...commands: string[]): HTMLElement {
         if (typeof command !== 'string' && !Array.isArray(command)) {
             throw TypeError(`Commands need to be of type string or array, you supplied: ${typeof command}`)
         }
+        console.log('fr');
+        
 
         // If the command isn't an array, set the attributes to the values on the element
         if (!Array.isArray(command)) {
