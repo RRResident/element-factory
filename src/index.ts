@@ -84,11 +84,12 @@ const elementFactory = function (commands: string[]): HTMLElement {
                // If duplicate elements, create the required amount with elementFactory and append them all to the top level element
                 const numberOfChildren = Number(command[0].match(/\*(\d*)/)[1]);
                 const tag = command[0].match(/[a-z-]*(?=\*)/)[0];
-                command.shift();
-                command.unshift(tag);
+                // Copy the array as to not change the original
+                const commandCopy = [...command];
+                commandCopy[0] = tag;
                 for (let i = 0; i < numberOfChildren; i++) {
-                const childElement = elementFactory(command);
-                topLevelElement.appendChild(childElement);
+                    const childElement = elementFactory(commandCopy);
+                    topLevelElement.appendChild(childElement);
                 }
             }
         }
