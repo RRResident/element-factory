@@ -28,7 +28,11 @@ const booleanAttributes = [
     "typemustmatch"
 ];
 
-const elementFactory = function (...commands: string[]): HTMLElement {
+const elementFactory = function (commands: string[]): HTMLElement {
+    // Commands should be an array
+    if (!Array.isArray(commands)) {
+        throw TypeError('The commands you pass need to be an array');
+    }
     // Create a top level element
     let topLevelElement: HTMLElement;
     commands.forEach((command: string | string[], index: number) => {
@@ -55,7 +59,7 @@ const elementFactory = function (...commands: string[]): HTMLElement {
                 throw TypeError(`Command ${command} is not a valid boolean attribute, and has no '=value'`);
             }
 
-            const attribute = command.match(/^[a-zA-z-]*(?==)/)[0];
+            const attribute = command.match(/^[a-zA-z-]*(?==)/) ? command.match(/^[a-zA-z-]*(?==)/)[0] : null;
             if (!attribute) {
                 throw TypeError(`Attribute from ${command} is invalid, it should be formatted as 'attribute=value'`);
             }
@@ -74,7 +78,7 @@ const elementFactory = function (...commands: string[]): HTMLElement {
         } else {
             if (!command[0].match(/\*/)) {
                // If no duplicate child elements, create the child element with elementFactory and append it to the top level element
-                const childElement = elementFactory(...command);
+                const childElement = elementFactory(command);
                 topLevelElement.appendChild(childElement);
             } else {
                // If duplicate elements, create the required amount with elementFactory and append them all to the top level element
@@ -83,7 +87,7 @@ const elementFactory = function (...commands: string[]): HTMLElement {
                 command.shift();
                 command.unshift(tag);
                 for (let i = 0; i < numberOfChildren; i++) {
-                const childElement = elementFactory(...command);
+                const childElement = elementFactory(command);
                 topLevelElement.appendChild(childElement);
                 }
             }

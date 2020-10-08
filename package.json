@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "compile": "node_modules/typescript/bin/tsc -w",
+        "compile": "eslint src/index.ts && node_modules/typescript/bin/tsc -w",
         "build": "node_modules/typescript/bin/tsc"
     },
     "repository": {
