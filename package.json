@@ -1,24 +1,32 @@
 {
     "name": "element-factory",
     "version": "0.0.1",
-    "description": "TODO",
-    "main": "index.js",
+    "description": "A lightweight tool for quickly creating HTML.",
+    "main": "./build/index.js",
     "scripts": {
         "test": "jest",
         "compile": "eslint src/index.ts && node_modules/typescript/bin/tsc -w",
         "build": "node_modules/typescript/bin/tsc"
     },
+    "homepage": "https://github.com/RRResident/element-factory",
+    "bugs": {
+        "url": "https://github.com/UserName/package-name/issues"
+    },
+    "files": [
+        "build"
+    ],
     "repository": {
         "type": "git",
-        "url": "TODO"
+        "url": "https://github.com/RRResident/element-factory.git"
     },
     "keywords": [
         "create",
         "element",
         "HTML"
     ],
+    "private": "false",
     "author": "Ross Tanchan",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {},
     "devDependencies": {
         "@types/jest": "^26.0.14",
