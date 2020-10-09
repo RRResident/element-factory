@@ -6,13 +6,11 @@ Element Factory is a dependency-free, light-weight tool for quickly creating HTM
 ## Installation & Inclusion
 Install it with:
 ```
-npm i elementfactory
+npm i html-element-factory
 ```
-Bring into your project with Node's `require` or use ESM's `import`
+Bring into your project:
 ```
-const elementFactory = require('elementfactory');
-// Or
-import elementFactory from 'elementfactory';
+const elementFactory = require('html-element-factory');
 ```
 
 ## Usage

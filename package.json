@@ -1,5 +1,5 @@
 {
-    "name": "elementfactory",
+    "name": "html-element-factory",
     "version": "1.0.0",
     "description": "A lightweight tool for quickly creating HTML.",
     "main": "./build/index.js",
