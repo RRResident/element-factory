@@ -20,7 +20,7 @@ To introduce by example, let's say we want to create a `div` element, with a cla
 ```javascript
 const div = document.createElement('div');
 div.className = 'foo';
-div.id = 'bar
+div.id = 'bar';
 ```
 With `elementFactory`, we pass in an array where the first value is the type of element we want to create, the remaining items can be strings of `'attribute=value'`, so the above example can be created as:
 ```javascript
