@@ -60,3 +60,8 @@ test('Can create an element with a grandchild', () => {
     const grandparent = elementFactory(['div', ['div', ['div', 'class=grandchild']]]);
     expect(grandparent.children[0].children[0].className).toBe('grandchild');
 })
+
+test('Can create mutliple children that have multiple children', () => {
+    const div = elementFactory(['div', ['span*2', ['p*2']]]);
+    expect(div.querySelectorAll('p').length).toBe(4);
+})
