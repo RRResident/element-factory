@@ -24,7 +24,6 @@
         "element",
         "HTML"
     ],
-    "private": "false",
     "author": "Ross Tanchan",
     "license": "MIT",
     "dependencies": {},
