@@ -1,6 +1,6 @@
 {
-    "name": "element-factory",
-    "version": "0.0.1",
+    "name": "elementfactory",
+    "version": "1.0.0",
     "description": "A lightweight tool for quickly creating HTML.",
     "main": "./build/index.js",
     "scripts": {

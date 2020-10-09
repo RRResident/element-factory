@@ -65,3 +65,8 @@ test('Can create mutliple children that have multiple children', () => {
     const div = elementFactory(['div', ['span*2', ['p*2']]]);
     expect(div.querySelectorAll('p').length).toBe(4);
 })
+
+test('Can create element class that has various characters', () => {
+    const div = elementFactory(['div', 'class=test-class']);
+    expect(div.className).toBe('test-class');
+})
