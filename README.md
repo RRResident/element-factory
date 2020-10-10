@@ -11,6 +11,8 @@ npm i html-element-factory
 Bring into your project:
 ```
 const elementFactory = require('html-element-factory');
+// Or using ES Modules:
+import elementFactory from 'html-element-factory';
 ```
 
 ## Usage
