@@ -2,3 +2,4 @@ node_modules/
 index.html
 coverage/
 build/
+.DS_Store
